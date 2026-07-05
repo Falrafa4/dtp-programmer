@@ -28,6 +28,11 @@
     box-sizing: border-box;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -60,7 +65,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* =========================================
-   Navbar (Optional Navigation)
+   Navbar & Mobile Menu
    ========================================= */
 .navbar {
     position: fixed;
@@ -83,29 +88,135 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.25rem;
     font-weight: 700;
     color: var(--primary-color);
+    position: relative;
+    z-index: 100; /* Keep logo di atas overlay pada keadaan tertentu jika dibutuhkan */
 }
 
-.navbar nav ul {
-    display: none; /* Hide on mobile to keep it simple */
+/* Hamburger Button */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 4px;
 }
 
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--text-color);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    border-radius: 2px;
+}
+
+/* Hamburger Active Animation (Silang) */
+.hamburger.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Nav Overlay */
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 998;
+}
+
+.nav-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Nav Links Mobile (Sidebar UI) */
+.nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    max-width: 80vw;
+    height: 100vh;
+    background-color: var(--bg-color);
+    padding: 80px 2rem 2rem;
+    box-shadow: var(--shadow-lg);
+    transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
+}
+
+.nav-links.active {
+    right: 0;
+}
+
+.nav-links ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    display: block;
+    padding: 0.5rem 0;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* Nav Links Desktop */
 @media (min-width: 768px) {
-    .navbar nav ul {
-        display: flex;
-        list-style: none;
+    .hamburger {
+        display: none;
+    }
+    
+    .nav-overlay {
+        display: none !important;
+    }
+    
+    .nav-links {
+        position: static;
+        width: auto;
+        max-width: none;
+        height: auto;
+        background-color: transparent;
+        padding: 0;
+        box-shadow: none;
+        transition: none;
+    }
+    
+    .nav-links ul {
+        flex-direction: row;
         gap: 2rem;
     }
     
-    .navbar nav a {
-        text-decoration: none;
-        color: var(--text-color);
-        font-weight: 500;
+    .nav-links a {
         font-size: 0.95rem;
-        transition: var(--transition);
-    }
-    
-    .navbar nav a:hover {
-        color: var(--primary-color);
+        padding: 0;
     }
 }
 

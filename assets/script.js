@@ -1,6 +1,34 @@
 // Menunggu hingga seluruh dokumen HTML selesai dimuat
 document.addEventListener('DOMContentLoaded', () => {
     
+    // 0. Mobile Navbar Logic (Hamburger Menu)
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    const navOverlay = document.getElementById('nav-overlay');
+    const navItems = document.querySelectorAll('.nav-links a');
+
+    const toggleMenu = () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        navOverlay.classList.toggle('active');
+        // Prevent body scroll when menu is open on mobile
+        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+    };
+
+    if (hamburger && navLinks && navOverlay) {
+        hamburger.addEventListener('click', toggleMenu);
+        navOverlay.addEventListener('click', toggleMenu);
+        
+        // Close menu when a link is clicked
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+        });
+    }
+
     // 1. Inisialisasi animasi fade-in saat di scroll (Intersection Observer)
     const observerOptions = {
         root: null, // menggunakan viewport sebagai referensi
