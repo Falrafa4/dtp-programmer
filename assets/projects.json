@@ -1,0 +1,42 @@
+{
+  "semester1": [
+    {
+      "id": 1,
+      "title": "Movie List",
+      "description": "Aplikasi web untuk mencari dan melihat daftar film populer. Menggunakan HTML, CSS, dan Fetch API untuk mengambil data dari TMDB.",
+      "image": "/assets/images/movie-list.webp",
+      "techStack": ["HTML", "CSS", "JavaScript", "API Public"],
+      "demoUrl": "https://movie-list-programmer.vercel.app",
+      "githubUrl": "https://github.com/Falrafa4/movie-list"
+    },
+    {
+      "id": 2,
+      "title": "The News",
+      "description": "Portal berita sederhana yang menampilkan berita terkini dari berbagai kategori. Dibangun dengan layout flexbox dan grid yang responsif.",
+      "image": "/assets/images/the-news.webp",
+      "techStack": ["HTML", "CSS", "JavaScript", "API Public"],
+      "demoUrl": "https://news.naufalrafa.my.id",
+      "githubUrl": "https://github.com/falrafa4/thenews"
+    }
+  ],
+  "semester2": [
+    {
+      "id": 3,
+      "title": "Oriena",
+      "description": "Platform e-commerce modern dengan fitur keranjang belanja dan autentikasi. Dibangun menggunakan React dan backend FastAPI.",
+      "image": "/assets/images/oriena.webp",
+      "techStack": ["React.js", "TailwindCSS", "Supabase"],
+      "demoUrl": "https://oriena.my.id",
+      "githubUrl": "https://github.com/AryaKhaslana/ISCI-OrienaWeb"
+    },
+    {
+      "id": 4,
+      "title": "Spentaru Archive",
+      "description": "Sistem arsip digital untuk menyimpan dan mengelola dokumen. Menggunakan Next.js untuk frontend dan PostgreSQL.",
+      "image": "/assets/images/spentaru-archive.webp",
+      "techStack": ["React.js", "TailwindCSS", "MySQL"],
+      "demoUrl": "https://spentaru.naufalrafa.my.id",
+      "githubUrl": "https://github.com/spentaru-archive-team"
+    }
+  ]
+}
