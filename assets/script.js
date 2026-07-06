@@ -112,7 +112,7 @@ function renderProjects(projects, containerId, semesterBadge) {
                     </div>
                     <div class="project-actions">
                         <a href="${project.demoUrl}" class="project-btn btn-demo" target="_blank" rel="noopener noreferrer">Demo</a>
-                        <a href="${project.githubUrl}" class="project-btn btn-github" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        <a href="${project.githubUrl}" class="project-btn btn-github" target="_blank" rel="noopener noreferrer">Source Code</a>
                     </div>
                 </div>
             </div>

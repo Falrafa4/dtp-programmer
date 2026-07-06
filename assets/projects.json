@@ -17,6 +17,24 @@
       "techStack": ["HTML", "CSS", "JavaScript", "API Public"],
       "demoUrl": "https://news.naufalrafa.my.id",
       "githubUrl": "https://github.com/falrafa4/thenews"
+    },
+    {
+      "id": 5,
+      "title": "Book List",
+      "description": "Aplikasi web untuk mencatat dan mengelola koleksi buku pribadi. Menggunakan HTML, CSS, dan JavaScript, dan API Public dari Google Books.",
+      "image": "/assets/images/book-list.webp",
+      "techStack": ["HTML", "CSS", "JavaScript", "API Public"],
+      "demoUrl": "https://book-list-programmer.vercel.app",
+      "githubUrl": "https://github.com/Falrafa4/book-list"
+    },
+    {
+      "id": 6,
+      "title": "Jokes Programmer",
+      "description": "Aplikasi web yang menampilkan lelucon-lelucon dari API jokes public.",
+      "image": "/assets/images/jokes.webp",
+      "techStack": ["HTML", "CSS", "JavaScript", "API Public"],
+      "demoUrl": "https://jokes-programmer.vercel.app",
+      "githubUrl": "https://github.com/Falrafa4/jokes-web"
     }
   ],
   "semester2": [
