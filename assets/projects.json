@@ -23,7 +23,7 @@
     {
       "id": 3,
       "title": "Oriena",
-      "description": "Platform e-commerce modern dengan fitur keranjang belanja dan autentikasi. Dibangun menggunakan React dan backend FastAPI.",
+      "description": "Platform e-commerce modern dengan fitur keranjang belanja dan autentikasi. Dibangun menggunakan React dan backend Supabase.",
       "image": "/assets/images/oriena.webp",
       "techStack": ["React.js", "TailwindCSS", "Supabase"],
       "demoUrl": "https://oriena.my.id",
@@ -32,7 +32,7 @@
     {
       "id": 4,
       "title": "Spentaru Archive",
-      "description": "Sistem arsip digital untuk menyimpan dan mengelola dokumen. Menggunakan Next.js untuk frontend dan PostgreSQL.",
+      "description": "Sistem arsip digital untuk menyimpan dan mengelola dokumen. Menggunakan React.js sebagai frontend.",
       "image": "/assets/images/spentaru-archive.webp",
       "techStack": ["React.js", "TailwindCSS", "MySQL"],
       "demoUrl": "https://spentaru.naufalrafa.my.id",
