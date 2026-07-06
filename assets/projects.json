@@ -28,6 +28,20 @@
       "githubUrl": "https://github.com/Falrafa4/book-list"
     },
     {
+      "id": 8,
+      "title": "Gameland",
+      "description": "Aplikasi web yang menampilkan rekomendasi game dari API public.",
+      "image": "/assets/images/gameland.webp",
+      "techStack": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "API Public"
+      ],
+      "demoUrl": "https://projek-akhir-semester.vercel.app/",
+      "githubUrl": "https://github.com/AryaKhaslana/Projek-akhir-semester"
+    },
+    {
       "id": 6,
       "title": "Jokes Programmer",
       "description": "Aplikasi web yang menampilkan lelucon-lelucon dari API jokes public.",
@@ -50,11 +64,20 @@
     {
       "id": 4,
       "title": "Spentaru Archive",
-      "description": "Sistem arsip digital untuk menyimpan dan mengelola dokumen. Menggunakan React.js sebagai frontend.",
+      "description": "Sistem arsip digital untuk menyimpan dan mengelola dokumen. Menggunakan React.js sebagai frontend. *(Akun demo: user: admin, pw: password)",
       "image": "/assets/images/spentaru-archive.webp",
       "techStack": ["React.js", "TailwindCSS", "MySQL"],
       "demoUrl": "https://spentaru.naufalrafa.my.id",
       "githubUrl": "https://github.com/spentaru-archive-team"
+    },
+    {
+      "id": 7,
+      "title": "CV Niscahya",
+      "description": "Website profil perusahaan CV Niscahya yang menampilkan informasi tentang layanan, portofolio, dan kontak. Dibangun menggunakan React.js dan JavaScript.",
+      "image": "/assets/images/cv-niscahya.webp",
+      "techStack": ["React.js", "JavaScript", "MySQL"],
+      "demoUrl": "https://cvniscahya.com/",
+      "githubUrl": "https://github.com/Nademmm/Niscahya-Indonesia-Cerdas"
     }
   ]
 }
