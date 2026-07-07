@@ -33,21 +33,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const observerOptions = {
         root: null, // menggunakan viewport sebagai referensi
         rootMargin: '0px',
-        threshold: 0.15 // 15% elemen terlihat sebelum animasi dipicu
+        threshold: 0.05 // Diubah dari 0.15 ke 0.05 agar elemen yang sangat tinggi di mobile/HP tidak tertahan transparan (putih)
     };
 
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                // Berhenti memantau setelah elemen muncul untuk efisiensi
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Berhenti memantau setelah elemen muncul untuk efisiensi
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
 
-    const fadeElements = document.querySelectorAll('.fade-in');
-    fadeElements.forEach(el => observer.observe(el));
+        const fadeElements = document.querySelectorAll('.fade-in');
+        fadeElements.forEach(el => observer.observe(el));
+    } else {
+        // Fallback untuk browser mobile lama yang tidak mendukung IntersectionObserver
+        const fadeElements = document.querySelectorAll('.fade-in');
+        fadeElements.forEach(el => el.classList.add('visible'));
+    }
 
     // 2. Fetch dan render data project dari file JSON
     fetchProjects();
@@ -65,17 +71,26 @@ async function fetchProjects() {
         
         const data = await response.json();
         
-        // Memanggil fungsi render untuk masing-masing kategori
-        renderProjects(data.semester1, 'semester-1-projects', 'Semester 1');
-        renderProjects(data.semester2, 'semester-2-projects', 'Semester 2');
+        // Memanggil fungsi render untuk masing-masing kategori dengan pemeriksaan keamanan (tanpa optional chaining ?. agar cocok di HP jadul)
+        const sem1 = data && data.semester1;
+        const sem2 = data && data.semester2;
+        
+        renderProjects(sem1, 'semester-1-projects', 'Semester 1');
+        renderProjects(sem2, 'semester-2-projects', 'Semester 2');
         
     } catch (error) {
         console.error('Gagal mengambil data projects:', error);
         
         // Tampilkan pesan error pada antarmuka jika gagal memuat (berguna saat file dibuka langsung tanpa Live Server)
         const errorMsg = `<p style="color: #64748b; padding: 1rem;">Gagal memuat project. Pastikan kamu membuka halaman ini menggunakan Live Server (Protokol HTTP/HTTPS) dan bukan dari direktori lokal (Protokol file://).</p>`;
-        document.getElementById('semester-1-projects').innerHTML = errorMsg;
-        document.getElementById('semester-2-projects').innerHTML = errorMsg;
+        const s1Container = document.getElementById('semester-1-projects');
+        const s2Container = document.getElementById('semester-2-projects');
+        if (s1Container) {
+            s1Container.innerHTML = errorMsg;
+        }
+        if (s2Container) {
+            s2Container.innerHTML = errorMsg;
+        }
     }
 }
 
@@ -89,9 +104,13 @@ function renderProjects(projects, containerId, semesterBadge) {
     // Bersihkan isi container sebelumnya (jika ada)
     container.innerHTML = '';
 
+    // Pastikan projects terdefinisi dan merupakan array sebelum dijalankan (aman dari error tanpa optional chaining)
+    if (!projects || !Array.isArray(projects)) return;
+
     projects.forEach(project => {
-        // Map list tech stack menjadi tag <span>
-        const techStackHTML = project.techStack.map(tech => 
+        // Map list tech stack menjadi tag <span> dengan fallback jika techStack tidak didefinisikan
+        const techStack = (project && project.techStack) || [];
+        const techStackHTML = techStack.map(tech => 
             `<span class="tech-badge">${tech}</span>`
         ).join('');
 
@@ -99,20 +118,20 @@ function renderProjects(projects, containerId, semesterBadge) {
         const cardHTML = `
             <div class="project-card">
                 <div class="project-image-wrapper">
-                    <img src="${project.image}" alt="${project.title}" class="project-image" loading="lazy">
+                    <img src="${(project && project.image) || ''}" alt="${(project && project.title) || 'Project'}" class="project-image" loading="lazy">
                 </div>
                 <div class="project-content">
                     <div class="project-header">
-                        <h3 class="project-title">${project.title}</h3>
+                        <h3 class="project-title">${(project && project.title) || 'Untitled'}</h3>
                         <span class="project-badge">${semesterBadge}</span>
                     </div>
-                    <p class="project-desc">${project.description}</p>
+                    <p class="project-desc">${(project && project.description) || ''}</p>
                     <div class="project-tech">
                         ${techStackHTML}
                     </div>
                     <div class="project-actions">
-                        <a href="${project.demoUrl}" class="project-btn btn-demo" target="_blank" rel="noopener noreferrer">Demo</a>
-                        <a href="${project.githubUrl}" class="project-btn btn-github" target="_blank" rel="noopener noreferrer">Source Code</a>
+                        <a href="${(project && project.demoUrl) || '#'}" class="project-btn btn-demo" target="_blank" rel="noopener noreferrer">Demo</a>
+                        <a href="${(project && project.githubUrl) || '#'}" class="project-btn btn-github" target="_blank" rel="noopener noreferrer">Source Code</a>
                     </div>
                 </div>
             </div>
