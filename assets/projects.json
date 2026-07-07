@@ -42,6 +42,19 @@
       "githubUrl": "https://github.com/AryaKhaslana/Projek-akhir-semester"
     },
     {
+      "id": 9,
+      "title": "Burger Rakyat",
+      "description": "Aplikasi web yang menampilkan rekomendasi burger dan company profile.",
+      "image": "/assets/images/burger-rakyat.webp",
+      "techStack": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      "demoUrl": "https://burger-rakyat.vercel.app/",
+      "githubUrl": "https://github.com/Vinz-Villain/Burger-Rakyat"
+    },
+    {
       "id": 6,
       "title": "Jokes Programmer",
       "description": "Aplikasi web yang menampilkan lelucon-lelucon dari API jokes public.",
