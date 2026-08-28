@@ -6,7 +6,7 @@
       "description": "Aplikasi web untuk mencari dan melihat daftar film populer. Menggunakan HTML, CSS, dan Fetch API untuk mengambil data dari TMDB.",
       "image": "/assets/images/movie-list.webp",
       "techStack": ["HTML", "CSS", "JavaScript", "API Public"],
-      "demoUrl": "https://movie-list-programmer.vercel.app",
+      "demoUrl": "https://movie-list-Software Developer.vercel.app",
       "githubUrl": "https://github.com/Falrafa4/movie-list"
     },
     {
@@ -24,7 +24,7 @@
       "description": "Aplikasi web untuk mencatat dan mengelola koleksi buku pribadi. Menggunakan HTML, CSS, dan JavaScript, dan API Public dari Google Books.",
       "image": "/assets/images/book-list.webp",
       "techStack": ["HTML", "CSS", "JavaScript", "API Public"],
-      "demoUrl": "https://book-list-programmer.vercel.app",
+      "demoUrl": "https://book-list-Software Developer.vercel.app",
       "githubUrl": "https://github.com/Falrafa4/book-list"
     },
     {
@@ -56,11 +56,11 @@
     },
     {
       "id": 6,
-      "title": "Jokes Programmer",
+      "title": "Jokes Software Developer",
       "description": "Aplikasi web yang menampilkan lelucon-lelucon dari API jokes public.",
       "image": "/assets/images/jokes.webp",
       "techStack": ["HTML", "CSS", "JavaScript", "API Public"],
-      "demoUrl": "https://jokes-programmer.vercel.app",
+      "demoUrl": "https://jokes-Software Developer.vercel.app",
       "githubUrl": "https://github.com/Falrafa4/jokes-web"
     }
   ],
@@ -79,7 +79,7 @@
       "title": "Spentaru Archive",
       "description": "Sistem arsip digital untuk menyimpan dan mengelola dokumen. Menggunakan React.js sebagai frontend. *(Akun demo: user: admin, pw: password)",
       "image": "/assets/images/spentaru-archive.webp",
-      "techStack": ["React.js", "TailwindCSS", "MySQL"],
+      "techStack": ["React.js", "Laravel", "TailwindCSS", "MySQL"],
       "demoUrl": "https://spentaru.naufalrafa.my.id",
       "githubUrl": "https://github.com/spentaru-archive-team"
     },
@@ -88,7 +88,7 @@
       "title": "CV Niscahya",
       "description": "Website profil perusahaan CV Niscahya yang menampilkan informasi tentang layanan, portofolio, dan kontak. Dibangun menggunakan React.js dan JavaScript.",
       "image": "/assets/images/cv-niscahya.webp",
-      "techStack": ["React.js", "JavaScript", "MySQL"],
+      "techStack": ["React.js", "Laravel", "JavaScript", "MySQL"],
       "demoUrl": "https://cvniscahya.com/",
       "githubUrl": "https://github.com/Nademmm/Niscahya-Indonesia-Cerdas"
     }
